@@ -6,8 +6,9 @@ from mysite.album import views
 
 
 urlpatterns = [
-    url(r'^result/$', views.photo_list, name='photo_list'),
-    url(r'^home/$', views.photo_reset, name='photo_reset'),
+    url(r'^result/$', views.photo_result, name='photo_result'),
+    url(r'^$', views.photo_home, name='photo_home'),
+    url(r'^survey/$', views.photo_survey, name='photo_survey'),
 ]
 
 if settings.DEBUG:

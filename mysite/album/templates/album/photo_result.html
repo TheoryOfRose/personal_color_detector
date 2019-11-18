@@ -105,14 +105,55 @@
   <h1 class="page-header">Personal Color</h1>
   
   {% for photo in photos %}
-    {% if photo.description == "spring_warm" %}
-      <img src="{% static 'img/spring_warm.png' %}" style="width: 100%; height: auto;">
-    {% elif photo.description == "autumn_warm" %}
-      <img src="{% static 'img/autumn_warm.png' %}" style="width: 100%; height: auto;">
-    {% elif photo.description == "summer_cool" %}
-      <img src="{% static 'img/summer_cool.png' %}" style="width: 100%; height: auto;">
-    {% elif photo.description == "winter_cool" %}
-      <img src="{% static 'img/winter_cool.png' %}" style="width: 100%; height: auto;">
+    {% if photo.color1 == photo.color2 %}
+      <h1 class="text-uppercase" style="color:gray; font-family:verdana"> {{photo.color1}} </h2>
+      {% if photo.color1 == "spring_warm" %}
+        <img src="{% static 'img/spring_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color1 == "autumn_warm" %}
+        <img src="{% static 'img/autumn_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color1 == "summer_cool" %}
+        <img src="{% static 'img/summer_cool.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color1 == "winter_cool" %}
+        <img src="{% static 'img/winter_cool.png' %}" style="width: 100%; height: auto;">
+      {% endif %}
+
+    {% elif photo.color1 == "" %}
+      <h1 class="text-uppercase" style="color:gray; font-family:verdana"> {{photo.color2}} </h1>
+      {% if photo.color2 == "spring_warm" %}
+        <img src="{% static 'img/spring_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color2 == "autumn_warm" %}
+        <img src="{% static 'img/autumn_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color2 == "summer_cool" %}
+        <img src="{% static 'img/summer_cool.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color2 == "winter_cool" %}
+        <img src="{% static 'img/winter_cool.png' %}" style="width: 100%; height: auto;">
+      {% endif %}
+
+    {% else %}
+      <h1 class="text-uppercase" style="color:gray; font-family:verdana"> {{photo.color1}}   or   {{photo.color2}} </h1><br><br>
+
+      <h2 class="text-uppercase">1. {{photo.color2}}</h2>
+      {% if photo.color2 == "spring_warm" %}
+        <img src="{% static 'img/spring_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color2 == "autumn_warm" %}
+        <img src="{% static 'img/autumn_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color2 == "summer_cool" %}
+        <img src="{% static 'img/summer_cool.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color2 == "winter_cool" %}
+        <img src="{% static 'img/winter_cool.png' %}" style="width: 100%; height: auto;">
+      {% endif %}
+      <br><br>
+
+      <h2 class="text-uppercase">2. {{photo.color1}}</h2>
+      {% if photo.color1 == "spring_warm" %}
+        <img src="{% static 'img/spring_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color1 == "autumn_warm" %}
+        <img src="{% static 'img/autumn_warm.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color1 == "summer_cool" %}
+        <img src="{% static 'img/summer_cool.png' %}" style="width: 100%; height: auto;">
+      {% elif photo.color1 == "winter_cool" %}
+        <img src="{% static 'img/winter_cool.png' %}" style="width: 100%; height: auto;">
+      {% endif %}
     {% endif %}
   {% endfor %}
   

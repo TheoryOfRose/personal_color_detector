@@ -61,49 +61,25 @@
 
 {% block content %}
   <h1 class="page-header">Personal Color</h1>
+  <h1 class="page-header">Step2 - Survey</h1>
 
-  <!-- FORM TO UPLOAD THE IMAGES -->
-  <form method="post" enctype="multipart/form-data" id="formUpload">
+  <form method="POST" class="post-form">
     {% csrf_token %}
-    {{ form }}
+    <h3 class="page-header">Q1 당신의 피부톤은 어떤 편입니까? (눈 밑과 목을 중심으로 봐주세요)</h3>
+    <input type="radio" name="q1" value=1>  노란기 있는 복숭아 계열<br>
+    <input type="radio" name="q1" value=0>  핑크빛 도는 붉은 빛 계열<br><br>
+    <h3 class="page-header">Q2 볼에 홍조가 있는 편입니까?</h3>
+    <input type="radio" name="q2" value=1>  볼에 홍조가 있는 편<br>
+    <input type="radio" name="q2" value=0>  볼에 홍조가 없는 편<br><br>
+    <h3 class="page-header">Q3 자외선에 잘 타는 타입입니까?</h3>
+    <input type="radio" name="q3" value=1>  까맣게 타고 오래 지속되는 편<br>
+    <input type="radio" name="q3" value=0>  붉게 타고 금방 돌아오는 편<br><br>
+    <h3 class="page-header">Q4 본인 이미지는 어떤 타입입니까?</h3>
+    <input type="radio" name="q4" value=1>  도시적이며 눈동자가 또렷한 편<br>
+    <input type="radio" name="q4" value=0>  부드럽고 여성적이고 우아한 편<br><br>
+    <br>
+    <br>
+    <input class="btn btn-dark" type="submit" value="Submit">
   </form>
-
-  <!-- MODAL TO CROP THE IMAGE -->
-  <div class="modal fade" id="modalCrop">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title">Crop the photo</h4>
-        </div>
-        <div class="modal-body">
-          <img src="" id="image" style="max-width: 100%;">
-        </div>
-        <div class="modal-footer">
-          <div class="btn-group pull-left" role="group">
-            <button type="button" class="btn btn-default js-zoom-in">
-              <span class="glyphicon glyphicon-zoom-in"></span>
-            </button>
-            <button type="button" class="btn btn-default js-zoom-out">
-              <span class="glyphicon glyphicon-zoom-out"></span>
-            </button>
-          </div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
-          <button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTAINER TO DISPLAY THE CROPPED IMAGES -->
-  <div class="row" style="margin-top: 20px">
-    {% for photo in photos %}
-      <div class="col-sm-4 col-md-3">
-        <img src="{{ photo.file.url }}" class="thumbnail">
-      </div>
-    {% endfor %}
-  </div>
 
 {% endblock %}
